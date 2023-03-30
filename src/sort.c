@@ -63,10 +63,9 @@ void	three_stack(t_stacks *three)
 
 int	sort(t_stacks *stack, int size)
 {
-	if (check_sort(stack->a, stack->size_a; 0) == 0)
+	if (check_sort(stack->a, stack->size_a, 0) == 0)
 	{
 		if (size == 2)
-		{
 			swap_a(stack, 0);
 		else if
 			three_stack(stack);
