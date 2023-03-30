@@ -35,3 +35,53 @@ void	temporary_sort(int *stack_temp, int size)
 		i++;
 	}
 }
+
+void	three_stack(t_stacks *three)
+{
+	if (three->a[0] > three->a[1] && three->a[0] < three->a[2]
+		&& three->a[1] < three->a[2])
+		swap_a(three, 0);
+	if (three->a[0] > three->a[1] && three->a[0] > three->a[2]
+		&& three->a[1] > three->a[2])
+	{
+		swap_a(three, 0);
+		reverse_rotate_a(three, 0);
+	}
+	if (three->a[0] > three->a[1] && three->a[0] > three->a[2]
+		&& three->a[1] < three->a[2])
+		rotate_a(three, 0);
+	if (three->a[0] < three->a[1] && three->a[0] < three->a[2]
+		&& three->a[1] > three->a[2])
+	{
+		swap_a(three, 0);
+		rotate_a(three, 0);
+	}
+	if (three->a[0] < three->a[1] && three->a[0] > three->a[2]
+		&& three->a[1] > three->a[2])
+		reverse_rotate_a(three, 0);
+}
+
+int	sort(t_stacks *stack, int size)
+{
+	if (check_sort(stack->a, stack->size_a; 0) == 0)
+	{
+		if (size == 2)
+		{
+			swap_a(stack, 0);
+		else if
+			three_stack(stack);
+		else
+			quick_sort(stack, size, 0);
+	}
+	return (0);
+}
+
+int	ft_push(t_stacks *stack, int len, int push)
+{
+	if (push == 0)
+		push_b(stack, 0);
+	else
+		push_a(stack, 0);
+	len--;
+	return (len);
+}
