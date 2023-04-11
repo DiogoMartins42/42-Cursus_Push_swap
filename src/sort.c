@@ -36,7 +36,7 @@ void	temporary_sort(int *stack_temp, int size)
 	}
 }
 
-void	three_stack(t_stacks *three)
+void	three_stack_a(t_stacks *three)
 {
 	if (three->a[0] > three->a[1] && three->a[0] < three->a[2]
 		&& three->a[1] < three->a[2])

@@ -17,8 +17,8 @@
 void	push_swap(char **av)
 {
 	t_stacks	stack;
-	int		size;
-	int		i;
+	int			size;
+	int			i;
 
 	i = -1;
 	size = push_strlen(av);
