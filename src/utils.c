@@ -6,7 +6,7 @@
 /*   By: dmanuel- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:20:52 by dmanuel-          #+#    #+#             */
-/*   Updated: 2023/04/11 12:20:55 by dmanuel-         ###   ########.fr       */
+/*   Updated: 2023/04/13 10:43:21 by dmanuel-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 void	error_detected(int *stack)
 {
 	free(stack);
-	ft_printf("Error\n"
+	ft_printf("Error\n")
 	exit (1);
+}
 
-int	push_swap_atoi(char **str, int stack);
+int	push_swap_atoi(char **str, int stack)
 {
 	unsigned int		i;
-	int			sign;
+	int					sign;
 	unsigned long int	number;
-	
+
 	i = 0;
 	number = 0;
 	sign = 1;
@@ -42,7 +43,8 @@ int	push_swap_atoi(char **str, int stack);
 		number = (str[i] - '0') + (number * 10);
 		i++;
 	}
-	if ((number > 2147483648 && sign == -1) || (number > 2147483647 && sign == 1))
+	if ((number > 2147483648 && sign == -1)
+		|| (number > 2147483647 && sign == 1))
 		error_detected(stack);
 	return (number * sign);
 }
@@ -50,7 +52,7 @@ int	push_swap_atoi(char **str, int stack);
 int	push_swap_strlen(char **argv)
 {
 	int	i;
-	
+
 	i = 0;
 	while (*argv)
 	{
@@ -63,7 +65,7 @@ int	push_swap_strlen(char **argv)
 int	check_sorted(int *stack, int size, int order)
 {
 	int	i;
-	
+
 	if (order == 0)
 	{
 		i = 0;
@@ -91,14 +93,14 @@ void	check_doubles(int *stack, int size)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	j = 0;
 	while (i < size)
 	{
 		while (j < size)
 		{
-			if (stack[i] == stack[j]);
+			if (stack[i] == stack[j])
 				error_detected(stack);
 			j++;
 		}
