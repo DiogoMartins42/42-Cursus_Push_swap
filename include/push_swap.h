@@ -14,22 +14,27 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include "../libft/include/libft.h"
 
 typedef struct s_stacks
 {
-	int	a*;
-	int	b*;
+	int	*a;
+	int	*b;
 	int	size_a;
-	int	size_b:
-}		t_stacks
+	int	size_b;
+}		t_stacks;
 
 void	push_swap(char **av);
 void	temporary_sort(int *stack_temp, int size);
 void	three_stack_a(t_stacks *three);
-
+void	error_detected(int *stack);
+void	check_doubles(int *stack, int size);
+int	check_sorted(int *stack, int size, int order);
 int	sort(t_stacks *stack, int size);
 int	ft_push(t_stacks *stack, int len, int push);
 int	quick_sort_a(t_stacks *stack, int len, int count);
 int	quick_sort_b(t_stacks *stack, int len, int count);
+int	push_swap_strlen(char **argv);
+int	push_swap_atoi(char **str, int stack);
 
 #endif

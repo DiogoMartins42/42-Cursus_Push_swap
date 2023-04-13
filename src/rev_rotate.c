@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../libft/libft.h"
 
 void	reverse_rotate_a(t_stacks *stack, int checker)
 {

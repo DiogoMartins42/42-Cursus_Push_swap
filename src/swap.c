@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../libft/libft.h"
 
 void	swap_b(t_stacks *stack, int checker)
 {

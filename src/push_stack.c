@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../libft/libft.h"
 
 void	push_b(t_stacks *stack, int checker)
 {
@@ -28,7 +27,7 @@ void	push_b(t_stacks *stack, int checker)
 		stack->size_a--;
 		while (++i < stack->size_a)
 			stack->a[i] = stack->a[i - 1];
-		if (!bonus)
+		if (!checker)
 			ft_printf("pb\n");
 	}
 	else

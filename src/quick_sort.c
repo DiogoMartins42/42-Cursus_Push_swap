@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../libft/libft.h"
-#include <stdlib.h>
 
 void	quicksort_three_a_b(t_stacks *stack, int len)
 {

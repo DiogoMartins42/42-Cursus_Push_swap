@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../libft/libft.h"
-#include <stdlib.h>
 
 void	error_detected(int *stack)
 {

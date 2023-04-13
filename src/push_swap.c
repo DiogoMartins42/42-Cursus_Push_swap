@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include "../libft/libft.h"
-#include <stdlib.h>
 
 void	push_swap(char **av)
 {
@@ -21,7 +19,7 @@ void	push_swap(char **av)
 	int			i;
 
 	i = -1;
-	size = push_strlen(av);
+	size = push_swap_strlen(av);
 	stack.a = malloc(size * sizeof(int));
 	if (!stack.a)
 		return ;
@@ -29,13 +27,13 @@ void	push_swap(char **av)
 	stack.b = malloc(size * sizeof(int));
 	if (!stack.b)
 	{
-		free(stack.a)
+		free(stack.a);
 		return ;
 	}
 	stack.size_b = 0;
 	while (++i < size)
-		stack.a[i] = push_atoi(av[i], stack.a);
-	doubles(stack.a, size);
+		stack.a[i] = push_swap_atoi(av[i], stack.a);
+	check_doubles(stack.a, size);
 	sort(&stack, size);
 	free(stack.a);
 	free(stack.b);
