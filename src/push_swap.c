@@ -32,7 +32,7 @@ void	push_swap(char **av)
 	}
 	stack.size_b = 0;
 	while (++i < size)
-		stack.a[i] = push_swap_atoi(av[i], stack.a);
+		stack.a[i] = push_swap_atoi(av[i], *stack.a);
 	check_doubles(stack.a, size);
 	sort(&stack, size);
 	free(stack.a);

@@ -59,7 +59,7 @@ void	reverse_rotate_r(t_stacks *stack, int checker)
 		|| stack->size_b == 0 || stack->size_b == 1)
 		return ;
 	i = stack->size_a - 1;
-	tmp = stack->[i];
+	tmp = stack->a[i];
 	while (i)
 	{
 		stack->a[i] = stack->a[i - 1];

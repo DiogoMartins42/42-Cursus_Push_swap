@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	swap_b(t_stacks *stack, int checker)
+void	swap_a(t_stacks *stack, int checker)
 {
 	int	tmp;
 
@@ -21,7 +21,7 @@ void	swap_b(t_stacks *stack, int checker)
 	tmp = 0;
 	tmp = stack->a[0];
 	stack->a[0] = stack->a[1];
-	stack->a[1] = temp;
+	stack->a[1] = tmp;
 	if (!checker)
 		ft_printf("sa\n");
 }
@@ -35,7 +35,7 @@ void	swap_b(t_stacks *stack, int checker)
 	tmp = 0;
 	tmp = stack->b[0];
 	stack->b[0] = stack->b[1];
-	stack->b[1] = temp;
+	stack->b[1] = tmp;
 	if (!checker)
 		ft_printf("sb\n");
 }

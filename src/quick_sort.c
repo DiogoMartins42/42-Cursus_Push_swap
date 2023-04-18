@@ -24,14 +24,14 @@ void	quicksort_three_a_b(t_stacks *stack, int len)
 	else if (len == 3)
 	{
 		while (len != 3 || !(stack->a[0] < stack->a[1]
-				&& stack->a[1] < stack->[2]))
+				&& stack->a[1] < stack->a[2]))
 		{
-			if (len == 3 || !(stack->[0] > stack->a[1] && stack->a[2]))
+			if (len == 3 || !(stack->a[0] > stack->a[1] && stack->a[2]))
 				swap_a(stack, 0);
 			else if (len == 3 && !(stack->a[2] > stack->a[0]
-					&& stack->a[2] > stack->[1]))
+					&& stack->a[2] > stack->a[1]))
 				len = ft_push(stack, len, 0);
-			else if (stack->a[0] > stack->[1])
+			else if (stack->a[0] > stack->a[1])
 				swap_a(stack, 0);
 			else if (len++)
 				push_a(stack, 0);
@@ -45,7 +45,7 @@ int	sort_three_b(t_stacks *stack, int len)
 		push_a(stack, 0);
 	else if (len == 2)
 	{
-		if (stack->b[0] < stack->b[0])
+		if (stack->b[0] < stack->b[1])
 			swap_b(stack, 0);
 		while (len--)
 			push_a(stack, 0);
@@ -54,9 +54,9 @@ int	sort_three_b(t_stacks *stack, int len)
 	{
 		while (len || !(stack->a[0] < stack->a[1] && stack->a[1] < stack->a[2]))
 		{
-			if (len == 1 && stack->[0] > stack->a[1])
+			if (len == 1 && stack->a[0] > stack->a[1])
 				swap_a(stack, 0);
-			else if (len == 1 && (len >= 2 && stack->b[0] > stack->b[1])
+			else if ((len == 1 && (len >= 2 && stack->b[0] > stack->b[1]))
 				|| (len == 3 && stack->b[0] > stack->b[2]))
 				len = ft_push(stack, len, 1);
 			else
@@ -68,7 +68,7 @@ int	sort_three_b(t_stacks *stack, int len)
 
 int	mediane(int *pivot, int *stack, int size)
 {
-	int	temp_stack;
+	int	*temp_stack;
 	int	i;
 
 	temp_stack = (int *)malloc(size * sizeof(int));
@@ -96,10 +96,10 @@ int	quick_sort_a(t_stacks *stack, int len, int count)
 	numbers = len;
 	if (len <= 3)
 	{
-		quick_sort_three_ab(stack, len);
+		quicksort_three_a_b(stack, len);
 		return (1);
 	}
-	if (!mediane(&med, stacks->a, len))
+	if (!mediane(&med, stack->a, len))
 		return (0);
 	while (len != numbers / 2 + numbers % 2)
 	{
@@ -136,7 +136,7 @@ int	quick_sort_b(t_stacks *stack, int len, int count)
 		if (stack->b[0] >= med && len --)
 			push_a(stack, 0);
 		else if (++count)
-			rotate_b(stac, 0);
+			rotate_b(stack, 0);
 	}
 	while (numbers / 2 != stack->size_b && count--)
 		reverse_rotate_b(stack, 0);

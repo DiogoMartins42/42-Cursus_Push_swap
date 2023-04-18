@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	rotate_a(t_stacks *stack, int cheker)
+void	rotate_a(t_stacks *stack, int checker)
 {
 	int	tmp;
 	int	i;
@@ -32,7 +32,7 @@ void	rotate_a(t_stacks *stack, int cheker)
 		ft_printf("ra\n");
 }
 
-void	rotate_b(t_stacks *stack, int cheker)
+void	rotate_b(t_stacks *stack, int checker)
 {
 	int	tmp;
 	int	i;

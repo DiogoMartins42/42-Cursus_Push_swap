@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void	temporary_sort(int *stack_temp, int size)
+void	temp_sort(int *stack_temp, int size)
 {
 	int	i;
 	int	j;
@@ -67,10 +67,10 @@ int	sort(t_stacks *stack, int size)
 	{
 		if (size == 2)
 			swap_a(stack, 0);
-		else if
-			three_stack(stack);
+		else if (size == 3)
+			three_stack_a(stack);
 		else
-			quick_sort(stack, size, 0);
+			quick_sort_a(stack, size, 0);
 	}
 	return (0);
 }

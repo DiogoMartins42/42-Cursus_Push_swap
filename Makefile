@@ -6,13 +6,13 @@
 #    By: dmanuel- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 13:55:49 by dmanuel-          #+#    #+#              #
-#    Updated: 2023/04/13 14:27:29 by dmanuel-         ###   ########.fr        #
+#    Updated: 2023/04/18 14:43:53 by dmanuel-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=cc
 CFLAGS=-Wall -Werror -Wextra -O3 -g
-DEPS= includes/push_swap.h libft/libft.a
+DEPS= include/push_swap.h libft/libft.a
 
 NAME=push_swap
 SRC=src/push_stack.c src/push_swap.c src/quick_sort.c src/rev_rotate.c src/rotate.c \
