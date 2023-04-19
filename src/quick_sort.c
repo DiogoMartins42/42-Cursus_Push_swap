@@ -26,7 +26,7 @@ void	quicksort_three_a_b(t_stacks *stack, int len)
 		while (len != 3 || !(stack->a[0] < stack->a[1]
 				&& stack->a[1] < stack->a[2]))
 		{
-			if (len == 3 || !(stack->a[0] > stack->a[1] && stack->a[2]))
+			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
 				swap_a(stack, 0);
 			else if (len == 3 && !(stack->a[2] > stack->a[0]
 					&& stack->a[2] > stack->a[1]))
@@ -56,7 +56,7 @@ int	sort_three_b(t_stacks *stack, int len)
 		{
 			if (len == 1 && stack->a[0] > stack->a[1])
 				swap_a(stack, 0);
-			else if ((len == 1 && (len >= 2 && stack->b[0] > stack->b[1]))
+			else if ((len == 1 && (stack->b[0] > stack->b[1]))
 				|| (len == 3 && stack->b[0] > stack->b[2]))
 				len = ft_push(stack, len, 1);
 			else
@@ -66,7 +66,7 @@ int	sort_three_b(t_stacks *stack, int len)
 	return (0);
 }
 
-int	mediane(int *pivot, int *stack, int size)
+int	mediane(int *pivot, const int *stack, int size)
 {
 	int	*temp_stack;
 	int	i;
@@ -112,7 +112,6 @@ int	quick_sort_a(t_stacks *stack, int len, int count)
 		reverse_rotate_a(stack, 0);
 	return (quick_sort_a(stack, numbers / 2 + numbers % 2, 0) \
 	&& quick_sort_b(stack, numbers / 2, 0));
-	return (1);
 }
 
 int	quick_sort_b(t_stacks *stack, int len, int count)

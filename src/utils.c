@@ -19,11 +19,11 @@ void	error_detected(int *stack)
 	exit (1);
 }
 
-int	push_swap_atoi(char *str, int stack)
+int	push_swap_atoi(const char *str, int stack)
 {
 	unsigned int		i;
 	int					sign;
-	unsigned long int	number;
+	unsigned int             	number;
 
 	i = 0;
 	number = 0;
@@ -60,7 +60,7 @@ int	push_swap_strlen(char **argv)
 	return (i);
 }
 
-int	check_sort(int *stack, int size, int order)
+int	check_sort(const int *stack, int size, int order)
 {
 	int	i;
 
