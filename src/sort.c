@@ -79,8 +79,10 @@ int	ft_push(t_stacks *stack, int len, int push)
 {
 	if (push == 0)
 		push_b(stack, 0);
-	else
-		push_a(stack, 0);
+	else if (push == 1)
+    {
+        push_a(stack, 0);
+    }
 	len--;
 	return (len);
 }

@@ -26,7 +26,7 @@ void	quicksort_three_a_b(t_stacks *stack, int len)
 		while (len != 3 || !(stack->a[0] < stack->a[1]
 				&& stack->a[1] < stack->a[2]))
 		{
-			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
+			if (len == 3 && stack->a[0] > (stack->a[1] && stack->a[2]))
 				swap_a(stack, 0);
 			else if (len == 3 && !(stack->a[2] > stack->a[0]
 					&& stack->a[2] > stack->a[1]))
@@ -52,15 +52,19 @@ int	sort_three_b(t_stacks *stack, int len)
 	}
 	else if (len == 3)
 	{
-		while (len || !(stack->a[0] < stack->a[1] && stack->a[1] < stack->a[2]))
+		while (len)
 		{
 			if (len == 1 && stack->a[0] > stack->a[1])
 				swap_a(stack, 0);
-			else if ((len == 1 && (stack->b[0] > stack->b[1]))
+			else if (len == 1 || (len >= 2 && stack->b[0] > stack->b[1])
 				|| (len == 3 && stack->b[0] > stack->b[2]))
 				len = ft_push(stack, len, 1);
 			else
-				swap_b(stack, 0);
+            {
+                rotate_b(stack, 0);
+                ft_printf("%i",len);
+            }
+
 		}
 	}
 	return (0);
