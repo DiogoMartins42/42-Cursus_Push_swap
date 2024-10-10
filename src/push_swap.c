@@ -12,6 +12,19 @@
 
 #include "../include/push_swap.h"
 
+void	free_av(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		free (av[i]);
+		i++;
+	}
+	free (av);
+}
+
 void	push_swap(char **av)
 {
 	t_stacks	stack;
@@ -32,7 +45,7 @@ void	push_swap(char **av)
 	}
 	stack.size_b = 0;
 	while (++i < size)
-		stack.a[i] = push_swap_atoi(av[i], *stack.a);
+		stack.a[i] = push_swap_atoi(av[i], stack.a);
 	check_doubles(stack.a, size);
 	sort(&stack, size);
 	free(stack.a);
@@ -47,6 +60,8 @@ int	main(int ac, char **av)
 		if (ac == 2)
 			av = ft_split(*av, ' ');
 		push_swap(av);
+		if (ac == 2)
+			free_av(av);
 		return (0);
 	}
 	return (0);

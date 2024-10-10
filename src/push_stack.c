@@ -26,7 +26,7 @@ void	push_b(t_stacks *stack, int checker)
 		i = -1;
 		stack->size_a--;
 		while (++i < stack->size_a)
-			stack->a[i] = stack->a[i - 1];
+			stack->a[i] = stack->a[i + 1];
 		if (!checker)
 			ft_printf("pb\n");
 	}

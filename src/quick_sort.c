@@ -26,7 +26,7 @@ void	quicksort_three_a_b(t_stacks *stack, int len)
 		while (len != 3 || !(stack->a[0] < stack->a[1]
 				&& stack->a[1] < stack->a[2]))
 		{
-			if (len == 3 && stack->a[0] > (stack->a[1] && stack->a[2]))
+			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
 				swap_a(stack, 0);
 			else if (len == 3 && !(stack->a[2] > stack->a[0]
 					&& stack->a[2] > stack->a[1]))
@@ -37,7 +37,7 @@ void	quicksort_three_a_b(t_stacks *stack, int len)
 				push_a(stack, 0);
 		}
 	}
-}		
+}
 
 int	sort_three_b(t_stacks *stack, int len)
 {
@@ -52,7 +52,7 @@ int	sort_three_b(t_stacks *stack, int len)
 	}
 	else if (len == 3)
 	{
-		while (len)
+		while (len || !(stack->a[0] < stack->a[1] && stack->a[1] < stack->a[2]))
 		{
 			if (len == 1 && stack->a[0] > stack->a[1])
 				swap_a(stack, 0);
@@ -60,11 +60,7 @@ int	sort_three_b(t_stacks *stack, int len)
 				|| (len == 3 && stack->b[0] > stack->b[2]))
 				len = ft_push(stack, len, 1);
 			else
-            {
-                rotate_b(stack, 0);
-                ft_printf("%i",len);
-            }
-
+				swap_b(stack, 0);
 		}
 	}
 	return (0);
@@ -115,7 +111,7 @@ int	quick_sort_a(t_stacks *stack, int len, int count)
 	while (numbers / 2 + numbers % 2 != stack->size_a && count--)
 		reverse_rotate_a(stack, 0);
 	return (quick_sort_a(stack, numbers / 2 + numbers % 2, 0) \
-	&& quick_sort_b(stack, numbers / 2, 0));
+		&& quick_sort_b(stack, numbers / 2, 0));
 }
 
 int	quick_sort_b(t_stacks *stack, int len, int count)
@@ -144,5 +140,5 @@ int	quick_sort_b(t_stacks *stack, int len, int count)
 	while (numbers / 2 != stack->size_b && count--)
 		reverse_rotate_b(stack, 0);
 	return (quick_sort_a(stack, numbers / 2 + numbers % 2, 0) \
-	&& quick_sort_b(stack, numbers / 2, 0));
+		&& quick_sort_b(stack, numbers / 2, 0));
 }

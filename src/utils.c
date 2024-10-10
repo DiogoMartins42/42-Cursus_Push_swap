@@ -19,11 +19,11 @@ void	error_detected(int *stack)
 	exit (1);
 }
 
-int	push_swap_atoi(const char *str, int stack)
+int	push_swap_atoi(char *str, int *stack)
 {
 	unsigned int		i;
 	int					sign;
-	unsigned int             	number;
+	unsigned int		number;
 
 	i = 0;
 	number = 0;
@@ -37,13 +37,13 @@ int	push_swap_atoi(const char *str, int stack)
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			error_detected(&stack);
+			error_detected(stack);
 		number = (str[i] - '0') + (number * 10);
 		i++;
 	}
 	if ((number > 2147483648 && sign == -1)
 		|| (number > 2147483647 && sign == 1))
-		error_detected(&stack);
+		error_detected(stack);
 	return (number * sign);
 }
 
@@ -60,13 +60,13 @@ int	push_swap_strlen(char **argv)
 	return (i);
 }
 
-int	check_sort(const int *stack, int size, int order)
+int	check_sort(int *stack, int size, int order)
 {
 	int	i;
 
 	if (order == 0)
 	{
-		i = 0;
+		i = 1;
 		while (i < size)
 		{
 			if (stack[i - 1] > stack[i])
